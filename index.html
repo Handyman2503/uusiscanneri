@@ -82,7 +82,6 @@
     const flashToggle = document.getElementById('flash-toggle');
     const flashState = document.getElementById('flash-state');
     const camQrResult = document.getElementById('cam-qr-result');
-      const clearTextInput = document.getElementById('cam-qr-result');
     const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
     const fileSelector = document.getElementById('file-selector');
     const fileQrResult = document.getElementById('file-qr-result');
@@ -100,7 +99,7 @@
     // ####### Web Cam Scanning #######
 
 
-    const scanner = new QrScanner(video, result => setResult(camQrResult, result), error =>  {
+    const scanner = new QrScanner(video, result => setResult(clearTextInput, result), error =>  {
         camQrResult.textContent = error;
         camQrResult.style.color = 'inherit';
 
