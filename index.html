@@ -94,7 +94,7 @@
 
     // ####### Web Cam Scanning #######
 
-    const scanner = new QrScanner(video, result => setResult(camQrResult, result), error => console.log('decoded qr code:', result =>  {
+    const scanner = new QrScanner(video, result => setResult(camQrResult, result), error =>  {
         camQrResult.textContent = error;
         camQrResult.style.color = 'inherit';
 
@@ -166,6 +166,8 @@
             .catch(e => setResult(fileQrResult, e || 'No QR code found.'));
     });
 
+    console.log(document.getElementById('camQrResult');
+      });
 
 
 </script>
