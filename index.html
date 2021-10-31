@@ -82,7 +82,7 @@
     const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
     const fileSelector = document.getElementById('file-selector');
     const fileQrResult = document.getElementById('file-qr-result');
-  
+    const qrScanner = new QrScanner(videoElem, result => console.log('decoded qr code:', result));
 
     function setResult(label, result) {
         label.textContent = result;
@@ -97,7 +97,6 @@
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), error =>  {
         camQrResult.textContent = error;
         camQrResult.style.color = 'inherit';
-        console.log('decoded qr code:', result);
     });
 
     const updateFlashAvailability = () => {
