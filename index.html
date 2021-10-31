@@ -97,7 +97,9 @@
     const scanner = new QrScanner(video, result => setResult(camQrResult, result), error =>  {
         camQrResult.textContent = error;
         camQrResult.style.color = 'inherit';
+
     });
+    console.log(document.getElementById('camQrResult').value);
 
     const updateFlashAvailability = () => {
         scanner.hasFlash().then(hasFlash => {
