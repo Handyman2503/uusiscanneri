@@ -68,6 +68,9 @@
 <b>Detected QR code: </b>
 <span id="file-qr-result">None</span>
 
+
+  <textarea id="clearTextInput" placeholder="Type some text here..."></textarea>
+
 <script type="module">
     import QrScanner from "./qr-scanner.min.js";
     QrScanner.WORKER_PATH = './qr-scanner-worker.min.js';
@@ -79,6 +82,7 @@
     const flashToggle = document.getElementById('flash-toggle');
     const flashState = document.getElementById('flash-state');
     const camQrResult = document.getElementById('cam-qr-result');
+      const clearTextInput = document.getElementById('cam-qr-result');
     const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
     const fileSelector = document.getElementById('file-selector');
     const fileQrResult = document.getElementById('file-qr-result');
@@ -96,12 +100,19 @@
     // ####### Web Cam Scanning #######
 
 
+    const scanner = new QrScanner(video, result => setResult(camQrResult, result), error =>  {
+        camQrResult.textContent = error;
+        camQrResult.style.color = 'inherit';
+
+    });
+/* concole log*/ /*
+
     const scanner = new QrScanner(video, result => console.log('decoded qr code:', result), error =>  {
         camQrResult.textContent = error;
         camQrResult.style.color = 'inherit';
 
     });
-
+*/
 
     const updateFlashAvailability = () => {
         scanner.hasFlash().then(hasFlash => {
