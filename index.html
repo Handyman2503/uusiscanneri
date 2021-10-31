@@ -82,6 +82,7 @@
     const camQrResultTimestamp = document.getElementById('cam-qr-result-timestamp');
     const fileSelector = document.getElementById('file-selector');
     const fileQrResult = document.getElementById('file-qr-result');
+    const camQrResult = new camQrResult(videoElem, result => console.log('decoded qr code:', result));
 
 
     function setResult(label, result) {
@@ -166,8 +167,7 @@
             .catch(e => setResult(fileQrResult, e || 'No QR code found.'));
     });
 
-    console.log(document.getElementById('camQrResult');
-      });
+
 
 
 </script>
